@@ -59,3 +59,16 @@ def index(request):
     }
 
     return  render(request, 'index.html', context)
+
+def project2(request):
+    context = {
+        
+    }
+    return  render(request, 'project2.html', context)
+
+
+def project3(request):
+    context = {
+
+    }
+    return  render(request, 'project3.html', context)
