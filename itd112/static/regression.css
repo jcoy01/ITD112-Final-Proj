@@ -1,0 +1,28 @@
+body {
+    background-color: rgb(241, 241, 241);
+  }
+
+.main-box {
+  display: flex;
+  margin: 1em;
+  padding: 1em 1em;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.contents {
+  padding: 1em;
+  width: 1000px;
+  align-items: center;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.contents-chart {
+  margin: auto;
+  padding: 2em;
+  width: 300em;
+  height: 80%;
+  border: 1px solid black;
+}

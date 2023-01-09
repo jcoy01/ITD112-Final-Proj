@@ -4,7 +4,7 @@ from collections import Counter
 import pandas as pd
 
 
-def readfile():
+def readfile(): #function to read the csv file
 
     #we have to create those in order to be able to access it around
     # use panda to read the file because i can use DATAFRAME to read the file
@@ -29,9 +29,6 @@ def readfile():
 
 def index(request):
     readfile()
-
-    message = 'I found ' + str(rows) + ' rows and ' + str(columns) + ' columns. Missing datas are: ' +str(missing_values)
-    messages.warning(request, message)
 
     dashboard = []
     for x in data[attribute]:
