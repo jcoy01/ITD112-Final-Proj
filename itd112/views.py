@@ -13,7 +13,7 @@ def readfile(): #function to read the csv file
      #read the missing data - checking if there is a null
     missingvalue = ['?', '0', '--']
 
-    my_file = pd.read_csv('D:\PROGRAMMING\Repos\ITD112\itd112\media\doh-epi-dengue-data-2016-2021.csv', 
+    my_file = pd.read_csv('E:\PROGRAMMING\Repositories\itd112\itd112\media\doh-epi-dengue-data-2016-2021.csv', 
                                         sep='[:;,|_]',na_values=missingvalue, engine='python')
 
 
@@ -63,7 +63,7 @@ def index(request):
 
 def project2(request):
     
-    df = pd.read_csv('D:/PROGRAMMING/Repos/ITD112/itd112/media/Iligan City Falls.csv')
+    df = pd.read_csv('E:\PROGRAMMING\Repositories\itd112\itd112\media\Iligan City Falls.csv')
     df['text'] = df['name']
 
     fig = go.Figure(data=go.Scattergeo(
@@ -95,9 +95,6 @@ def project2(request):
     lon_foc = 124.2322989
 
     fig.update_layout(
-        title = 'Location of falls in Iligan City<br>(Hover for falls names)',
-        title_x = 0.5,
-        title_y = 0.9,
         geo = dict(
             projection_scale=40, #this is kind of like zoom
             center=dict(lat=lat_foc, lon=lon_foc), #this will center on the point
@@ -119,7 +116,29 @@ def project2(request):
 
 
 def project3(request):
-    context = {
+    filename = 'E:\PROGRAMMING\Repositories\itd112\itd112\media\Covid.csv'
+    dataset = pd.read_csv(filename)
+    # print(data.head())
 
+    fig = go.Figure(data=[
+        go.Bar(name='Confirmed', x=dataset['Country'], y=dataset['Confirmed']),
+        go.Bar(name='Deaths', x=dataset['Country'], y=dataset['Deaths']),
+        go.Bar(name='Recovered', x=dataset['Country'], y=dataset['Recovered']),
+    ])
+    # Change the bar mode
+    fig.update_layout(
+        barmode='group',
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor = "#F1F1F1",
+        # width = 800,
+        # height = 500,
+
+        )
+
+    # Generate the SVG plot as an HTML div element
+    plot_div = fig.to_html(full_html=False, include_plotlyjs='cdn')
+
+    context = {
+        'figure': plot_div,
     }
     return  render(request, 'project3.html', context)
