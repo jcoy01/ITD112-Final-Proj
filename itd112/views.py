@@ -1,9 +1,7 @@
 from django.shortcuts import render
-from django.contrib import messages
 from collections import Counter
 import pandas as pd
 import plotly.graph_objects as go
-global my_file2
 
 
 def readfile(): #function to read the csv file
@@ -17,9 +15,6 @@ def readfile(): #function to read the csv file
 
     my_file = pd.read_csv('D:\PROGRAMMING\Repos\ITD112\itd112\media\doh-epi-dengue-data-2016-2021.csv', 
                                         sep='[:;,|_]',na_values=missingvalue, engine='python')
-
-    my_file2 = pd.read_csv('D:/PROGRAMMING/Repos/ITD112/itd112/media/Iligan City Falls.csv')
-    my_file2['text'] = my_file2['name']
 
 
     attribute = 'Region' #attribute to display in the chart
@@ -67,23 +62,59 @@ def index(request):
     return  render(request, 'index.html', context)
 
 def project2(request):
-    readfile()
-    context = {
-        
-    }
+    
+    df = pd.read_csv('D:/PROGRAMMING/Repos/ITD112/itd112/media/Iligan City Falls.csv')
+    df['text'] = df['name']
 
     fig = go.Figure(data=go.Scattergeo(
-        lon = my_file2['longitude'],
-        lat = my_file2['latitude'],
-        text = my_file2['text'],
-        mode = 'markers',
-        ))
+            lon = df['longitude'],
+            lat = df['latitude'],
+            text = df['text'],
+            mode = 'markers',
+            marker=dict(
+            color='#B76DF5',
+            size=8,
+            line=dict(
+                color='#4C286A',
+                width=2
+            )
+        )
+            ))
+
+    fig.update_geos(
+    coastlinecolor="RebeccaPurple",
+    coastlinewidth = 1.5,
+    landcolor="LightGreen",
+    showocean=True, oceancolor="LightBlue",
+    lakecolor = "Blue"
+)
+
+
+    # focus point
+    lat_foc = 8.1627541
+    lon_foc = 124.2322989
 
     fig.update_layout(
-            title = 'Most trafficked US airports<br>(Hover for airport names)',
-            geo_scope='asia',
-        )
-    fig.show()
+        title = 'Location of falls in Iligan City<br>(Hover for falls names)',
+        title_x = 0.5,
+        title_y = 0.9,
+        geo = dict(
+            projection_scale=40, #this is kind of like zoom
+            center=dict(lat=lat_foc, lon=lon_foc), #this will center on the point
+        ),
+        margin = dict(l=0, r=0, b=0, t=0),
+        height = 500,
+    )
+
+    fig.update_layout (paper_bgcolor = "#F1F1F1")
+
+
+    # Generate the SVG plot as an HTML div element
+    plot_div = fig.to_html(full_html=False, include_plotlyjs='cdn')
+
+    context = {
+        'figure': plot_div,
+    }
     return  render(request, 'project2.html', context)
 
 

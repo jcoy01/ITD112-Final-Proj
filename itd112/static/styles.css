@@ -26,3 +26,8 @@ body {
   height: 80%;
   border: 1px solid black;
 }
+
+.map {
+  margin: auto;
+  padding: 1em;
+}

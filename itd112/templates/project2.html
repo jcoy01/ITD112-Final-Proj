@@ -12,15 +12,6 @@
     <link rel="stylesheet" href=" {% static 'styles.css' %}" />
 </head>
 <body>
-<!-- {% block message %}
-    {% if messages %}
-        <div class="container" style="color: firebrick; margin-top: 10px">
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-        </div>
-    {% endif %}
-{% endblock %} -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">ITD112</a>
@@ -45,5 +36,9 @@
   </div>
 </nav>    
 
-</body>
+<div class="map">
+  <p>{{ figure | safe }}</p> 
+</div>
+
+  </body>
 </html>
