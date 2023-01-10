@@ -5,7 +5,7 @@ body {
 .main-box {
   display: flex;
   margin: 1em;
-  padding: 1em 1em;
+  padding: 1em;
   align-items: center;
   justify-content: center;
   gap: 1em;

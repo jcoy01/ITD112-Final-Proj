@@ -86,7 +86,6 @@ def project2(request):
     coastlinewidth = 1.5,
     landcolor="LightGreen",
     showocean=True, oceancolor="LightBlue",
-    lakecolor = "Blue"
 )
 
 
