@@ -5,7 +5,7 @@ body {
 .main-box {
   display: flex;
   margin: 1em;
-  padding: 1em 1em;
+  padding: 1em;
   align-items: center;
   justify-content: center;
   gap: 1em;
@@ -27,7 +27,55 @@ body {
   border: 1px solid black;
 }
 
-.map {
-  margin: auto;
+.map-box {
+  display: flex;
+  margin: 1em;
+  padding: 1em 1em;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.map-contents {
   padding: 1em;
+  width: 800px;
+  align-items: center;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.map {
+  padding: 1em;
+  width: 800px;
+  align-items: center;
+  text-align: center;
+}
+
+.bar-box {
+  display: flex;
+  margin: 1em;
+  padding: 1em 1em;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.bar-contents {
+  padding: 1em;
+  width: 800px;
+  align-items: center;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.bar-chart {
+  padding: 1em;
+  width: 800px;
+  align-items: center;
+  text-align: center;
+  border: 1px solid black;
+}
+
+svg {
+  height: inherit;
 }
