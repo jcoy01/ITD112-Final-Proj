@@ -19,14 +19,17 @@ body {
   align-items: center;
   text-align: center;
   border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .contents-chart {
   margin: auto;
   padding: 2em;
+  align-items: center;
   width: 300em;
   height: 80%;
   border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .map-box {
@@ -44,6 +47,7 @@ body {
   align-items: center;
   text-align: center;
   border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: default;
 }
 
@@ -69,6 +73,7 @@ body {
   align-items: center;
   text-align: center;
   border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: default;
 }
 
@@ -78,6 +83,7 @@ body {
   align-items: center;
   text-align: center;
   border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 svg {
