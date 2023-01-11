@@ -45,10 +45,14 @@ body {
   padding: 1em;
   width: 800px;
   align-items: center;
-  text-align: center;
+  text-align: justify;
   border: 1px solid black;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: default;
+}
+
+.map-contents-title {
+  text-align: center;
 }
 
 .map {
@@ -71,10 +75,14 @@ body {
   padding: 1em;
   width: 800px;
   align-items: center;
-  text-align: center;
+  text-align: justify;
   border: 1px solid black;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: default;
+}
+
+.bar-contents-title {
+  text-align: center;
 }
 
 .bar-chart {

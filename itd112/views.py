@@ -13,7 +13,7 @@ def readfile(): #function to read the csv file
      #read the missing data - checking if there is a null
     missingvalue = ['?', '0', '--']
 
-    my_file = pd.read_csv('E:\PROGRAMMING\Repositories\itd112\itd112\media\doh-epi-dengue-data-2016-2021.csv', 
+    my_file = pd.read_csv('D:\PROGRAMMING\Repos\ITD112 Final Proj\ITD112\itd112\media\doh-epi-dengue-data-2016-2021.csv', 
                                         sep='[:;,|_]',na_values=missingvalue, engine='python')
 
 
@@ -63,7 +63,7 @@ def index(request):
 
 def project2(request):
     
-    df = pd.read_csv('E:\PROGRAMMING\Repositories\itd112\itd112\media\Iligan City Falls.csv')
+    df = pd.read_csv('D:\PROGRAMMING\Repos\ITD112 Final Proj\ITD112\itd112\media\Iligan City Falls.csv')
     df['text'] = df['name']
 
     fig = go.Figure(data=go.Scattergeo(
@@ -77,16 +77,16 @@ def project2(request):
             line=dict(
                 color='#4C286A',
                 width=2
+                )
             )
-        )
-            ))
+    ))
 
     fig.update_geos(
     coastlinecolor="RebeccaPurple",
     coastlinewidth = 1.5,
     landcolor="LightGreen",
     showocean=True, oceancolor="LightBlue",
-)
+    )
 
 
     # focus point
@@ -115,7 +115,7 @@ def project2(request):
 
 
 def project3(request):
-    filename = 'E:\PROGRAMMING\Repositories\itd112\itd112\media\Covid.csv'
+    filename = 'D:\PROGRAMMING\Repos\ITD112 Final Proj\ITD112\itd112\media\Covid.csv'
     dataset = pd.read_csv(filename)
     # print(data.head())
 
@@ -124,15 +124,13 @@ def project3(request):
         go.Bar(name='Deaths', x=dataset['Country'], y=dataset['Deaths']),
         go.Bar(name='Recovered', x=dataset['Country'], y=dataset['Recovered']),
     ])
+
     # Change the bar mode
     fig.update_layout(
         barmode='group',
         plot_bgcolor='rgba(0,0,0,0)',
         paper_bgcolor = "#F1F1F1",
-        # width = 800,
-        # height = 500,
-
-        )
+    )
 
     # Generate the SVG plot as an HTML div element
     plot_div = fig.to_html(full_html=False, include_plotlyjs='cdn')
